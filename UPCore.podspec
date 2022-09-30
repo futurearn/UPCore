@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
 
 
   spec.author             = { "UPYUN" => "gang.lin@upai.com" }
-  spec.platform     = :ios, "9.0"
+  spec.platform     = :ios, "11.0"
   spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '$(inherited) -ObjC', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.user_target_xcconfig = {'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
 
@@ -71,6 +71,9 @@ Pod::Spec.new do |spec|
   #  you can include multiple dependencies to ensure it works.
 
   spec.requires_arc = true
+  spec.xcconfig = {
+    'VALID_ARCHS' =>  'arm64',
+  }
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"

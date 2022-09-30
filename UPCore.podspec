@@ -27,12 +27,22 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/upyun/UPCore.git", :tag => "#{spec.version}" }
 
   spec.frameworks = 'AudioToolbox', 'MediaPlayer'
-  spec.libraries = 'c++', 'resolv', 'conv', 'z.1.2.5', 'resolv9'
+  spec.libraries = 'c++', 'resolv', 'iconv', 'z.1.2.5', 'resolv.9'
+  spec.requires_arc = true
+  # spec.xcconfig = {
+  #   'VALID_ARCHS' =>  'arm64',
+  # }
+
+  # spec.subspec 'Core' do |core|
+
+  #   core.vendored_frameworks = ["TuSDKPulseEva.framework", "TuSDKPulseCore.framework", "TuSDKPulse.framework", "TuSDK.framework", "TuSDKFace.framework", "TuSDKVideo.framework", "libyuv.framework"]
+ 
+  # end
 
 
   spec.vendored_frameworks = ["TuSDKPulseEva.framework", "TuSDKPulseCore.framework", "TuSDKPulse.framework", "TuSDK.framework", "TuSDKFace.framework", "TuSDKVideo.framework", "libyuv.framework"]
  
-
+  # spec.static_framework  =  true
 
   # spec.public_header_files = "Classes/**/*.h"
 
@@ -70,10 +80,7 @@ Pod::Spec.new do |spec|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  spec.requires_arc = true
-  spec.xcconfig = {
-    'VALID_ARCHS' =>  'arm64',
-  }
+
 
   # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # spec.dependency "JSONKit", "~> 1.4"
